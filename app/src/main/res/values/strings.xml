@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AssignmentTwo</string>
+    <string name="Play_Game">Play Game</string>
+    <string name="Leaderboard">Leaderboard</string>
 </resources>

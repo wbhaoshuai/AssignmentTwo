@@ -22,7 +22,34 @@
         android:layout_weight="2"
         android:layout_margin="20dp">
 
-        
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/Play_Game"
+            android:onClick="onClickPlay"
+           />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:layout_margin="20dp">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="@string/Leaderboard"
+            android:onClick="onClickLeaderboard"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
