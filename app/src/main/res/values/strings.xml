@@ -5,4 +5,11 @@
     <string name="Timer">Timer: 0</string>
     <string name="Score">Score: 0</string>
     <string name="hint">Enter name</string>
+    <string name="Avatar">Avatar Colour</string>
+    <string name="Grey">Grey</string>
+    <string name="Blue">Blue</string>
+    <string name="Orange">Orange</string>
+    <string name="Green">Green</string>
+    <string name="Purple">Purple</string>
+    <string name="Pink">Pink</string>
 </resources>
