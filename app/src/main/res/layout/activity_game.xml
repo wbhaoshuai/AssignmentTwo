@@ -8,13 +8,15 @@
     tools:context=".MainActivity"
     android:orientation="vertical"
     android:background="@color/white">
-    
+
+    <!-- Top section: Contains game title and status displays (timer/score) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical">
 
+        <!-- Game title/image display -->
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -24,11 +26,13 @@
             android:paddingTop="20dp"
             />
 
+        <!-- Horizontal layout for timer and score labels -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
+            <!-- Timer label -->
             <TextView
                 android:id="@+id/tv_timer_text"
                 android:layout_width="0dp"
@@ -38,6 +42,7 @@
                 android:gravity="center"
                 android:text="@string/Timer"/>
 
+            <!-- Score label -->
             <TextView
                 android:id="@+id/tv_score_text"
                 android:layout_width="0dp"
@@ -51,13 +56,15 @@
         </LinearLayout>
 
     </LinearLayout>
-    
+
+    <!-- First row of mole holes (3 holes) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Hole 1 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_01"
             android:layout_width="0dp"
@@ -67,6 +74,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_without_mole"/>
 
+        <!-- Hole 2 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_02"
             android:layout_width="0dp"
@@ -76,6 +84,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_without_mole"/>
 
+        <!-- Hole 3 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_03"
             android:layout_width="0dp"
@@ -87,12 +96,14 @@
 
     </LinearLayout>
 
+    <!-- Second row of mole holes (3 holes) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Hole 4 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_04"
             android:layout_width="0dp"
@@ -102,6 +113,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_without_mole"/>
 
+        <!-- Hole 5 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_05"
             android:layout_width="0dp"
@@ -111,6 +123,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_without_mole"/>
 
+        <!-- Hole 6 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_06"
             android:layout_width="0dp"
@@ -123,12 +136,14 @@
 
     </LinearLayout>
 
+    <!-- Third row of mole holes (3 holes) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal">
 
+        <!-- Hole 7 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_07"
             android:layout_width="0dp"
@@ -138,6 +153,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_without_mole"/>
 
+        <!-- Hole 8 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_08"
             android:layout_width="0dp"
@@ -147,6 +163,7 @@
             android:scaleType="centerInside"
             android:src="@drawable/img_without_mole"/>
 
+        <!-- Hole 9 (without mole initially) -->
         <ImageView
             android:id="@+id/iv_without_mole_09"
             android:layout_width="0dp"
