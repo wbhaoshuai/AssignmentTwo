@@ -15,6 +15,7 @@ public class Mole {
         this.isVisible = false;
     }
 
+    // Getter method
     public int getIndex(){
         return  index;
     }
@@ -23,4 +24,12 @@ public class Mole {
         return  imageView;
     }
 
+    public boolean isVisible() {
+        return isVisible;
+    }
+
+    // Setter method: Control the visibility of groundhogs
+    public void setVisible(boolean visible){
+        this.isVisible = visible;
+    }
 }
