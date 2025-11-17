@@ -2,7 +2,6 @@ package com.example.assignmenttwo;
 
 import android.content.Context;
 import android.os.CountDownTimer;
-import android.os.Looper;
 import android.widget.ImageView;
 import android.widget.TextView;
 

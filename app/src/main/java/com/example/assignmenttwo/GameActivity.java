@@ -1,12 +1,16 @@
 package com.example.assignmenttwo;
 
 import android.os.Bundle;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.ArrayList;
 
 public class GameActivity extends AppCompatActivity {
 
@@ -22,6 +26,27 @@ public class GameActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Initialize the ImageView list of the groundhog
+        ArrayList<ImageView> moleViews = new ArrayList<>();
+        moleViews.add(findViewById(R.id.iv_without_mole_01));
+        moleViews.add(findViewById(R.id.iv_without_mole_02));
+        moleViews.add(findViewById(R.id.iv_without_mole_03));
+        moleViews.add(findViewById(R.id.iv_without_mole_04));
+        moleViews.add(findViewById(R.id.iv_without_mole_05));
+        moleViews.add(findViewById(R.id.iv_without_mole_06));
+        moleViews.add(findViewById(R.id.iv_without_mole_07));
+        moleViews.add(findViewById(R.id.iv_without_mole_08));
+        moleViews.add(findViewById(R.id.iv_without_mole_09));
+
+        // Initialize score and timer TextView
+        TextView scoreTextView = findViewById(R.id.tv_score_text);
+        TextView timerTextView = findViewById(R.id.tv_timer_text);
+
+        //Initialize Game logic
+        gameLogic = new GameLogic(this, moleViews, scoreTextView, timerTextView);
+        // Start the game
+        gameLogic.startGame();
 
     }
 }
