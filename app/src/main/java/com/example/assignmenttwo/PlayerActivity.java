@@ -25,7 +25,9 @@ public class PlayerActivity extends AppCompatActivity {
     }
 
     public void onclickSubmit(View view){
+        // Create an Intent to navigate from the current Activity to LeaderboardActivity
         Intent intent = new Intent(this, LeaderboardActivity.class);
+        // Start the LeaderboardActivity to proceed to the leaderboard screen
         startActivity(intent);
     }
 

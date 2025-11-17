@@ -5,10 +5,11 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
+    tools:context=".PlayerActivity"
     android:orientation="vertical"
     android:background="@color/white">
 
+    <!-- Game title/image display -->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -16,6 +17,7 @@
         android:scaleType="centerInside"
         android:src="@drawable/img_wakamole_text"/>
 
+    <!-- Displays the player's score -->
     <TextView
         android:id="@+id/tv_playerscore"
         android:layout_width="match_parent"
@@ -26,6 +28,7 @@
         android:textColor="@color/purple"
         android:textAppearance="@android:style/TextAppearance.Material.Headline"/>
 
+    <!-- Container for player name input -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -34,7 +37,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
-
+        <!-- Input field for player's name -->
         <EditText
             android:id="@+id/et_playername"
             android:layout_width="match_parent"
@@ -44,6 +47,7 @@
 
     </LinearLayout>
 
+    <!-- Container for avatar selection (radio buttons) -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -52,6 +56,7 @@
         android:gravity="center_vertical"
         android:orientation="vertical">
 
+        <!-- Label for avatar selection section -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,41 +64,48 @@
             android:textAppearance="@android:style/TextAppearance.Material.Headline"
             android:text="@string/Avatar"/>
 
+        <!-- Radio group for selecting avatar color -->
         <RadioGroup
             android:id="@+id/rg_avator"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
+            <!-- Radio button for grey avatar -->
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Grey"/>
 
+            <!-- Radio button for blue avatar -->
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Blue"/>
 
+            <!-- Radio button for orange avatar -->
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Orange"/>
 
+            <!-- Radio button for green avatar -->
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Green"/>
 
+            <!-- Radio button for purple avatar -->
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:text="@string/Purple"/>
 
+            <!-- Radio button for pink avatar -->
             <RadioButton
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -104,13 +116,14 @@
 
     </LinearLayout>
 
-
+    <!-- Container for the submit button (using ConstraintLayout for centering) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_margin="20dp">
 
+        <!-- Submit button to confirm user input -->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
