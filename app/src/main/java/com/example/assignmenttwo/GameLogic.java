@@ -119,24 +119,44 @@ public class GameLogic {
             }
         };
 
-        // 立即开始第一个地鼠的显示
+        // Start the loop
         moleHandler.post(moleRunnable);
     }
 
+    // Stop the mole cycle
     private void stopMoleLoop(){
-
+        if (moleHandler != null && moleRunnable != null) {
+            moleHandler.removeCallbacks(moleRunnable);
+        }
     }
 
+    // Display the mole with the specified index
     private void showMole(int index){
 
+        if (index < 0 || index >= moles.size()) return;
+
+        // Hide the current mole (to prevent multiple moles from being displayed simultaneously)
+        hideMole();
+
+        // Show new mole
+        currentMoleIndex = index;
+        moles.get(index).setVisible(true);
+
     }
 
+    // Hide the currently displayed mole
     private void hideMole(){
 
+        if (currentMoleIndex != -1 && currentMoleIndex < moles.size()) {
+            moles.get(currentMoleIndex).setVisible(false);
+            currentMoleIndex = -1;
+        }
+
     }
 
+    // Update score display
     private void updateScoreText(){
-
+        scoreTextView.setText(context.getString(R.string.score_text, currentScore));
     }
 
 }

@@ -14,4 +14,5 @@
     <string name="Pink">Pink</string>
     <string name="Submit">Submit</string>
     <string name="timer_text">Time: %1$d</string>
+    <string name="score_text">Score: %1$d</string>
 </resources>
