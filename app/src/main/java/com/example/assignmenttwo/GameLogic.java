@@ -12,8 +12,8 @@ import android.os.Handler;
 
 public class GameLogic {
 
-    private long MOLE_DISPLAY_TIME;
-    private long GAME_DURATION;
+    private final long MOLE_DISPLAY_TIME;
+    private final long GAME_DURATION;
     private  int currentScore;
     private int timeRemaining;
     private int currentMoleIndex;
@@ -52,6 +52,49 @@ public class GameLogic {
         this.timerTextView = timerTextView;
         this.isGameRunning = false;
         this.context = context;
+
+    }
+
+    public void startGame(){
+        isGameRunning = true;
+        startMoleLoop();
+        startTimer();
+        updateScoreText();
+    }
+
+    public void  startTimer(){
+        gameTimer = new CountDownTimer(GAME_DURATION, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                timeRemaining = (int) (millisUntilFinished / 1000);
+                timerTextView.setText(context.getString(R.string.timer_text, timeRemaining));
+            }
+
+            @Override
+            public void onFinish() {
+                isGameRunning = false;
+                stopMoleLoop();
+            }
+        }.start();
+    }
+
+    private void startMoleLoop(){
+
+    }
+
+    private void stopMoleLoop(){
+
+    }
+
+    private void showMole(int index){
+
+    }
+
+    private void hideMole(){
+
+    }
+
+    private void updateScoreText(){
 
     }
 

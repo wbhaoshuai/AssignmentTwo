@@ -13,5 +13,5 @@
     <string name="Purple">Purple</string>
     <string name="Pink">Pink</string>
     <string name="Submit">Submit</string>
-    <string name="timer_text">Timer: %1$d</string>
+    <string name="timer_text">Time: %1$d</string>
 </resources>

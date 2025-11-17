@@ -4,8 +4,8 @@ import android.widget.ImageView;
 
 public class Mole {
 
-    private int index;
-    private ImageView imageView;
+    private final int index;
+    private final ImageView imageView;
     private  boolean isVisible;
 
     // constructor
