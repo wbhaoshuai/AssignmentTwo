@@ -1,5 +1,6 @@
 package com.example.assignmenttwo;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -7,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import android.view.View;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -21,4 +23,10 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
+    public void  onClickPlay(View view){
+        Intent intent = new Intent(this, GameActivity.class);
+        startActivity(intent);
+    }
+
 }
