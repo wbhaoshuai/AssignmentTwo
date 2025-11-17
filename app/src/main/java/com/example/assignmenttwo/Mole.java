@@ -15,4 +15,12 @@ public class Mole {
         this.isVisible = false;
     }
 
+    public int getIndex(){
+        return  index;
+    }
+
+    public ImageView getImageView(){
+        return  imageView;
+    }
+
 }
