@@ -9,6 +9,7 @@
     android:orientation="vertical"
     android:background="@color/white">
 
+    <!--Image of the main interface-->
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -16,12 +17,14 @@
         android:src="@drawable/img_wackamole_banner"
         android:scaleType="centerInside"/>
 
+    <!-- Game button container: ConstraintLayout (for centering the button) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_margin="20dp">
 
+        <!-- Play Game button -->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -34,12 +37,14 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <!-- Leaderboard button container: ConstraintLayout (for centering the button) -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         android:layout_margin="20dp">
 
+        <!-- Leaderboard button -->
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

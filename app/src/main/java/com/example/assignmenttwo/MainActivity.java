@@ -25,12 +25,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void  onClickPlay(View view){
+        // Create an Intent object to navigate from the current Activity to GameActivity
         Intent intent = new Intent(this, GameActivity.class);
+        // Start the target activity to implement page redirection
         startActivity(intent);
     }
 
     public void onClickLeaderboard(View view){
+        // Create an Intent object to navigate from the current Activity to LeaderboardActivity
         Intent intent = new Intent(this, LeaderboardActivity.class);
+        // Start the target activity to implement page redirection
         startActivity(intent);
     }
 }
