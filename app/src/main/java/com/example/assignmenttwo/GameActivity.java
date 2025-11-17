@@ -13,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class GameActivity extends AppCompatActivity {
 
+    private CountDownTimer countDownTimer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,7 +28,7 @@ public class GameActivity extends AppCompatActivity {
 
         TextView tv_time = findViewById(R.id.tv_timer_text);
 
-        new CountDownTimer(30000, 1000) { // Total time, tick interval
+        countDownTimer = new CountDownTimer(30000, 1000) { // Total time, tick interval
             public void onTick(long millisUntilFinished) {
                 // Update the timer TextView
                 int remainingSeconds = (int) (millisUntilFinished / 1000);
@@ -42,4 +44,11 @@ public class GameActivity extends AppCompatActivity {
         }.start();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (countDownTimer != null) {
+            countDownTimer.cancel();
+        }
+    }
 }
