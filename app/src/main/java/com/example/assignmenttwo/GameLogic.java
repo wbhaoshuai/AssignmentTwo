@@ -30,12 +30,14 @@ public class GameLogic {
     // constructor
     public GameLogic(Context context, ArrayList<ImageView> moleViews, TextView scoreTextView, TextView timerTextView){
 
+        // Initialize constants
         this.MOLE_DISPLAY_TIME = 1500;
         this.GAME_DURATION = 30000;
+
         this.currentScore = 0;
         this.timeRemaining = 30;
         this.currentMoleIndex = -1; // -1 indicates no mole display
-        this.moleHandler =  new Handler(Looper.getMainLooper());
+        this.moleHandler =  new Handler();
 
         // Initialize Runnable (delay initialization, assign specific logic when used)
         this.moleRunnable = null;
@@ -55,14 +57,24 @@ public class GameLogic {
 
     }
 
+    // Start the game
     public void startGame(){
+        if (isGameRunning) return; // Avoid repeated startup
+
         isGameRunning = true;
+        currentScore = 0;
         startMoleLoop();
         startTimer();
         updateScoreText();
     }
 
+    // Start game countdown
     public void  startTimer(){
+        // Cancel existing timer (to prevent duplication)
+        if (gameTimer != null) {
+            gameTimer.cancel();
+        }
+
         gameTimer = new CountDownTimer(GAME_DURATION, 1000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -72,14 +84,43 @@ public class GameLogic {
 
             @Override
             public void onFinish() {
+                // Game over: Stop groundhog loop, update status
                 isGameRunning = false;
+                timerTextView.setText(context.getString(R.string.timer_text, 0));
                 stopMoleLoop();
+                hideMole(); // Hide the last mole
             }
         }.start();
     }
 
+    // Start the groundhog cycle
     private void startMoleLoop(){
 
+        moleRunnable = new Runnable() {
+            @Override
+            public void run() {
+                if (!isGameRunning) return; // Must loop during gameplay
+
+                // Randomly select a mole
+                int randomIndex;
+                do {
+                    randomIndex = random.nextInt(moles.size());
+                } while (randomIndex == currentMoleIndex && moles.size() > 1);
+
+                // Display the selected mole
+                showMole(randomIndex);
+
+                // Hide the groundhog after delaying MOLE_DISPLAY_TIME and continue the loop
+                moleHandler.postDelayed(() -> {
+                    hideMole();
+                    // After the groundhog hides, display the next one every 500ms
+                    moleHandler.postDelayed(this, 500);
+                }, MOLE_DISPLAY_TIME);
+            }
+        };
+
+        // 立即开始第一个地鼠的显示
+        moleHandler.post(moleRunnable);
     }
 
     private void stopMoleLoop(){

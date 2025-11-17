@@ -10,6 +10,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class GameActivity extends AppCompatActivity {
 
+    private GameLogic gameLogic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
