@@ -29,4 +29,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickLeaderboard(View view){
+        Intent intent = new Intent(this, LeaderboardActivity.class);
+        startActivity(intent);
+    }
 }
