@@ -37,6 +37,9 @@ public class PlayerActivity extends AppCompatActivity {
         et_playername = findViewById(R.id.et_playername);
         rg_avatar = findViewById(R.id.rg_avator);
 
+        // Obtain the final score passed from GameLogic
+        finalScore = getIntent().getIntExtra("FINAL_SCORE", 0);
+        tv_playerscore.setText(getString(R.string.final_score_text, finalScore));
     }
 
     public void onclickSubmit(View view){
