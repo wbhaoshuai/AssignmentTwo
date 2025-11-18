@@ -1,9 +1,12 @@
 package com.example.assignmenttwo;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -15,7 +18,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class PlayerActivity extends AppCompatActivity {
 
-    private TextView tv_playerscore;
+    private  TextView tv_playerscore;
     private EditText et_playername;
     private RadioGroup rg_avatar;
     private int finalScore;
@@ -40,9 +43,47 @@ public class PlayerActivity extends AppCompatActivity {
         // Obtain the final score passed from GameLogic
         finalScore = getIntent().getIntExtra("FINAL_SCORE", 0);
         tv_playerscore.setText(getString(R.string.final_score_text, finalScore));
+
+        // Obtain Leaderboard singleton instance
+        leaderboardInstance = Leaderboard.getInstance();
     }
 
+    @SuppressLint("UseCompatLoadingForDrawables")
     public void onclickSubmit(View view){
+
+        // Retrieve the name entered by the player
+        String playerName = et_playername.getText().toString().trim();
+        if (playerName.isEmpty()) {
+            et_playername.setError("Please enter a name");
+            return;
+        }
+
+        // Get the selected avatar ID
+        int selectedAvatarId = rg_avatar.getCheckedRadioButtonId();
+        // Retrieve the corresponding RadioButton based on the selected ID
+        RadioButton selectedRadioButton = findViewById(selectedAvatarId);
+        // Retrieve the avatar index stored in the tag
+        int avatarIndex = Integer.parseInt(selectedRadioButton.getTag().toString());
+
+        // Avatar resource array
+        int[] avatarResources = {
+                R.drawable.img_grey_mole,
+                R.drawable.img_blue_mole,
+                R.drawable.img_orange_mole,
+                R.drawable.img_green_mole,
+                R.drawable.img_purple_mole,
+                R.drawable.img_pink_mole
+        };
+
+        // Retrieve the corresponding Drawable based on the index
+        @SuppressLint("UseCompatLoadingForDrawables") Drawable playerAvatar;
+        playerAvatar = getResources().getDrawable(avatarResources[avatarIndex - 1], getTheme());
+
+
+        // Create a Player object and update the leaderboard
+        Player newPlayer = new Player(playerName, playerAvatar, finalScore);
+        leaderboardInstance.updateLeaderboard(newPlayer);
+
         // Create an Intent to navigate from the current Activity to LeaderboardActivity
         Intent intent = new Intent(this, LeaderboardActivity.class);
         // Start the LeaderboardActivity to proceed to the leaderboard screen

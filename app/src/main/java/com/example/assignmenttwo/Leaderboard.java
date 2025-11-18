@@ -5,19 +5,21 @@ import java.util.Comparator;
 
 public class Leaderboard {
 
-    private final Leaderboard leaderboardInstance;
+    private static Leaderboard leaderboardInstance;
     private final ArrayList<Player> leaderboard;
     private final int MAX_LEADERBOARD_SIZE;
 
     // constructor
     private Leaderboard(){
-        this.leaderboardInstance = new Leaderboard();
         this.leaderboard = new ArrayList<>();
         this.MAX_LEADERBOARD_SIZE = 5;
     }
 
     // Get singleton instance of Leaderboard
-    public Leaderboard getInstance() {
+    public static Leaderboard getInstance() {
+        if (leaderboardInstance == null) {
+            leaderboardInstance = new Leaderboard();
+        }
         return leaderboardInstance;
     }
 
