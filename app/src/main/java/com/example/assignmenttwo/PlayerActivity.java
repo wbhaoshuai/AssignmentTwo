@@ -60,24 +60,27 @@ public class PlayerActivity extends AppCompatActivity {
 
         // Get the selected avatar ID
         int selectedAvatarId = rg_avatar.getCheckedRadioButtonId();
-        // Retrieve the corresponding RadioButton based on the selected ID
-        RadioButton selectedRadioButton = findViewById(selectedAvatarId);
-        // Retrieve the avatar index stored in the tag
-        int avatarIndex = Integer.parseInt(selectedRadioButton.getTag().toString());
 
-        // Avatar resource array
-        int[] avatarResources = {
-                R.drawable.img_grey_mole,
-                R.drawable.img_blue_mole,
-                R.drawable.img_orange_mole,
-                R.drawable.img_green_mole,
-                R.drawable.img_purple_mole,
-                R.drawable.img_pink_mole
-        };
+        // Define player avatar variables
+        Drawable playerAvatar;
 
-        // Retrieve the corresponding Drawable based on the index
-        @SuppressLint("UseCompatLoadingForDrawables") Drawable playerAvatar;
-        playerAvatar = getResources().getDrawable(avatarResources[avatarIndex - 1], getTheme());
+        // Match the corresponding avatar resources based on the selected ID
+        if (selectedAvatarId == R.id.avatar1) {
+            playerAvatar = getResources().getDrawable(R.drawable.img_grey_mole, getTheme());
+        } else if (selectedAvatarId == R.id.avatar2) {
+            playerAvatar = getResources().getDrawable(R.drawable.img_blue_mole, getTheme());
+        } else if (selectedAvatarId == R.id.avatar3) {
+            playerAvatar = getResources().getDrawable(R.drawable.img_orange_mole, getTheme());
+        } else if (selectedAvatarId == R.id.avatar4) {
+            playerAvatar = getResources().getDrawable(R.drawable.img_green_mole, getTheme());
+        } else if (selectedAvatarId == R.id.avatar5) {
+            playerAvatar = getResources().getDrawable(R.drawable.img_purple_mole, getTheme());
+        } else if (selectedAvatarId == R.id.avatar6) {
+            playerAvatar = getResources().getDrawable(R.drawable.img_pink_mole, getTheme());
+        } else {
+            // Default avatar (if no option is selected)
+            playerAvatar = getResources().getDrawable(R.drawable.img_grey_mole, getTheme());
+        }
 
 
         // Create a Player object and update the leaderboard

@@ -72,6 +72,7 @@
 
             <!-- Radio button for grey avatar -->
             <RadioButton
+                android:id="@+id/avatar1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -79,6 +80,7 @@
 
             <!-- Radio button for blue avatar -->
             <RadioButton
+                android:id="@+id/avatar2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -86,6 +88,7 @@
 
             <!-- Radio button for orange avatar -->
             <RadioButton
+                android:id="@+id/avatar3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -93,6 +96,7 @@
 
             <!-- Radio button for green avatar -->
             <RadioButton
+                android:id="@+id/avatar4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -100,6 +104,7 @@
 
             <!-- Radio button for purple avatar -->
             <RadioButton
+                android:id="@+id/avatar5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"
@@ -107,6 +112,7 @@
 
             <!-- Radio button for pink avatar -->
             <RadioButton
+                android:id="@+id/avatar6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge"

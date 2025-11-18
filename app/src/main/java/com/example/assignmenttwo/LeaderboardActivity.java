@@ -60,8 +60,8 @@ public class LeaderboardActivity extends AppCompatActivity {
             if (i < leaderboard.size()) {
                 Player player = leaderboard.get(i);
                 avatarViews[i].setImageDrawable(player.getPlayerAvatar());
-                nameViews[i].setText(player.getPlayerName());
-                scoreViews[i].setText(getString(R.string.score_text, player.getPlayerScore()));
+                nameViews[i].setText(getString(R.string.leaderboard_name_scored, player.getPlayerName()));
+                scoreViews[i].setText(getString(R.string.leaderboard_score, player.getPlayerScore()));
             } else {
                 // Clear control when data is insufficient
                 avatarViews[i].setImageDrawable(null);

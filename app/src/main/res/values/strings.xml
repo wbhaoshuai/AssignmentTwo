@@ -16,4 +16,6 @@
     <string name="timer_text">Time: %1$d</string>
     <string name="score_text">Score: %1$d</string>
     <string name="final_score_text">Final Score: %1$d</string>
+    <string name="leaderboard_name_scored">%1$s scored: </string>
+    <string name="leaderboard_score">%1$d</string>
 </resources>
