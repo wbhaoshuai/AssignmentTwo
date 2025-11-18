@@ -71,7 +71,7 @@ public class GameLogic {
 
     // Start the game
     public void startGame(){
-        
+
         isGameRunning = true;
         currentScore = 0;
         startMoleLoop();
@@ -80,10 +80,6 @@ public class GameLogic {
 
     // Start game countdown
     public void  startTimer(){
-        // Cancel existing timer (to prevent duplication)
-        if (gameTimer != null) {
-            gameTimer.cancel();
-        }
 
         gameTimer = new CountDownTimer(GAME_DURATION, 1000) {
             @Override
