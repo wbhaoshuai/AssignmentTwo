@@ -16,5 +16,19 @@ public class Player {
         this.playerScore = score;
     }
 
+    // Getter method for player's name
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    // Getter method for player's avatar
+    public Drawable getPlayerAvatar() {
+        return playerAvatar;
+    }
+
+    // Getter method for player's score
+    public int getPlayerScore() {
+        return playerScore;
+    }
 
 }
