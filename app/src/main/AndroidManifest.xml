@@ -20,7 +20,8 @@
             android:noHistory="true"/>
         <activity
             android:name=".GameActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:noHistory="true"/>
         <activity
             android:name=".MainActivity"
             android:exported="true">

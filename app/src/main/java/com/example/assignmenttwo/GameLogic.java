@@ -1,6 +1,7 @@
 package com.example.assignmenttwo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -70,8 +71,7 @@ public class GameLogic {
 
     // Start the game
     public void startGame(){
-        if (isGameRunning) return; // Avoid repeated startup
-
+        
         isGameRunning = true;
         currentScore = 0;
         startMoleLoop();
@@ -99,6 +99,15 @@ public class GameLogic {
                 timerTextView.setText(context.getString(R.string.timer_text, 0));
                 stopMoleLoop();
                 hideMole(); // Hide the last mole
+
+                // Directly jump to PlayerActivity
+                if (context instanceof GameActivity) {
+                    Intent intent = new Intent(context, PlayerActivity.class);
+                    intent.putExtra("FINAL_SCORE", currentScore); // Passing scores
+                    context.startActivity(intent);
+                    // End the current GameActivity
+                    ((GameActivity) context).finish();
+                }
             }
         }.start();
     }
