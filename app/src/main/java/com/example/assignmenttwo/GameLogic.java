@@ -132,8 +132,6 @@ public class GameLogic {
     // Display the mole with the specified index
     private void showMole(int index){
 
-        if (index < 0 || index >= moles.size()) return;
-
         // Hide the current mole (to prevent multiple moles from being displayed simultaneously)
         hideMole();
 
@@ -145,12 +143,8 @@ public class GameLogic {
 
     // Hide the currently displayed mole
     private void hideMole(){
-
-        if (currentMoleIndex != -1 && currentMoleIndex < moles.size()) {
-            moles.get(currentMoleIndex).setVisible(false);
-            currentMoleIndex = -1;
-        }
-
+        moles.get(currentMoleIndex).setVisible(false);
+        currentMoleIndex = -1;
     }
 
     // Update score display

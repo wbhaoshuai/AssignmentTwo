@@ -31,5 +31,12 @@ public class Mole {
     // Setter method: Control the visibility of groundhogs
     public void setVisible(boolean visible){
         this.isVisible = visible;
+        if (visible) {
+            // Display Mole
+            imageView.setImageResource(R.drawable.img_without_mole);
+        } else {
+            // Hide Mole
+            imageView.setImageResource(R.drawable.img_with_mole);
+        }
     }
 }
