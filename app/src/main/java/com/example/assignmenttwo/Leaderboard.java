@@ -5,13 +5,15 @@ import java.util.Comparator;
 
 public class Leaderboard {
 
-    private Leaderboard leaderboardInstance;
-    private ArrayList<Player> leaderboard;
-    private final int MAX_LEADERBOARD_SIZE = 5;
+    private final Leaderboard leaderboardInstance;
+    private final ArrayList<Player> leaderboard;
+    private final int MAX_LEADERBOARD_SIZE;
 
     // constructor
     private Leaderboard(){
-
+        this.leaderboardInstance = new Leaderboard();
+        this.leaderboard = new ArrayList<>();
+        this.MAX_LEADERBOARD_SIZE = 5;
     }
 
     // Get singleton instance of Leaderboard
@@ -34,6 +36,11 @@ public class Leaderboard {
         while (leaderboard.size() > MAX_LEADERBOARD_SIZE) {
             leaderboard.remove(leaderboard.size() - 1);
         }
+    }
+
+    // Get the current leaderboard list
+    public ArrayList<Player> getLeaderboard() {
+        return leaderboard;
     }
 
 
