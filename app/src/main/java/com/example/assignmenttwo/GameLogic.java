@@ -44,9 +44,21 @@ public class GameLogic {
         this.random = new Random();
 
         this.moles = new ArrayList<>();
-        // Initialize the groundhog list
+        // Initialize the mole list
         for (int i = 0; i < moleViews.size(); i++) {
-            this.moles.add(new Mole(i, moleViews.get(i)));
+            // Create mole object and add it to the list
+            Mole mole = new Mole(i, moleViews.get(i));
+            this.moles.add(mole);
+
+            // Bind click events for each groundhog's imageView
+            mole.getImageView().setOnClickListener(v -> {
+                // Clicking is only effective when the groundhog is visible
+                if (mole.isVisible()) {
+                    currentScore += 10;
+                    updateScoreText();
+                    mole.setVisible(false);
+                }
+            });
         }
 
         this.scoreTextView = scoreTextView;
@@ -92,29 +104,29 @@ public class GameLogic {
         }.start();
     }
 
-    // Start the groundhog cycle
+    // Start the mole cycle
     private void startMoleLoop(){
 
         moleRunnable = new Runnable() {
             @Override
             public void run() {
-                if (!isGameRunning) return; // Must loop during gameplay
+
+                if(currentMoleIndex != -1){
+                    hideMole();
+                }
 
                 // Randomly select a mole
                 int randomIndex;
+                // Ensure not to select the same mole
                 do {
                     randomIndex = random.nextInt(moles.size());
-                } while (randomIndex == currentMoleIndex && moles.size() > 1);
+                } while (randomIndex == currentMoleIndex);
 
                 // Display the selected mole
                 showMole(randomIndex);
 
-                // Hide the groundhog after delaying MOLE_DISPLAY_TIME and continue the loop
-                moleHandler.postDelayed(() -> {
-                    hideMole();
-                    // After the groundhog hides, display the next one every 500ms
-                    moleHandler.postDelayed(this, 500);
-                }, MOLE_DISPLAY_TIME);
+                // Schedule this to run again after a delay
+                moleHandler.postDelayed(this, MOLE_DISPLAY_TIME);
             }
         };
 
@@ -131,14 +143,9 @@ public class GameLogic {
 
     // Display the mole with the specified index
     private void showMole(int index){
-
-        // Hide the current mole (to prevent multiple moles from being displayed simultaneously)
-        hideMole();
-
         // Show new mole
         currentMoleIndex = index;
         moles.get(index).setVisible(true);
-
     }
 
     // Hide the currently displayed mole
