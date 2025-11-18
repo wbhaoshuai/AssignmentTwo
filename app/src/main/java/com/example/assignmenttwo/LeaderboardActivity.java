@@ -10,6 +10,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
+
 public class LeaderboardActivity extends AppCompatActivity {
 
     @Override
@@ -49,7 +51,24 @@ public class LeaderboardActivity extends AppCompatActivity {
         scoreViews[4] = findViewById(R.id.tv_leaderboard_score5);
 
 
+        // Obtain ranking data from a single instance
+        ArrayList<Player> leaderboard = Leaderboard.getInstance().getLeaderboard();
 
+        // Traverse the control of 5 rankings and fill in data
+        for (int i = 0; i < 5; i++) {
+            // If the ranking data is less than 5 items, empty data will be displayed
+            if (i < leaderboard.size()) {
+                Player player = leaderboard.get(i);
+                avatarViews[i].setImageDrawable(player.getPlayerAvatar());
+                nameViews[i].setText(player.getPlayerName());
+                scoreViews[i].setText(getString(R.string.score_text, player.getPlayerScore()));
+            } else {
+                // Clear control when data is insufficient
+                avatarViews[i].setImageDrawable(null);
+                nameViews[i].setText("");
+                scoreViews[i].setText("");
+            }
+        }
 
     }
 }
