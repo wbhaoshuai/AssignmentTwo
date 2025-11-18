@@ -110,6 +110,7 @@ public class GameLogic {
             @Override
             public void run() {
 
+                // Clear the previous round of groundhogs
                 if(currentMoleIndex != -1){
                     hideMole();
                 }
@@ -147,8 +148,10 @@ public class GameLogic {
 
     // Hide the currently displayed mole
     private void hideMole(){
-        moles.get(currentMoleIndex).setVisible(false);
-        currentMoleIndex = -1;
+        if(currentMoleIndex != -1){
+            moles.get(currentMoleIndex).setVisible(false);
+            currentMoleIndex = -1;
+        }
     }
 
     // Update score display
