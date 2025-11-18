@@ -50,15 +50,15 @@ public class GameLogic {
             Mole mole = new Mole(i, moleViews.get(i));
             this.moles.add(mole);
 
-//            // Bind click events for each groundhog's imageView
-//            mole.getImageView().setOnClickListener(v -> {
-//                // Clicking is only effective when the groundhog is visible
-//                if (mole.isVisible()) {
-//                    currentScore += 10;
-//                    updateScoreText();
-//                    hideMole();
-//                }
-//            });
+            // Bind click events for each groundhog's imageView
+            mole.getImageView().setOnClickListener(v -> {
+                // Clicking is only effective when the groundhog is visible
+                if (mole.isVisible()) {
+                    currentScore += 10;
+                    updateScoreText();
+                    hideMole();
+                }
+            });
         }
 
         this.scoreTextView = scoreTextView;
