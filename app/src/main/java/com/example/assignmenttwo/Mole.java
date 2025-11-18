@@ -33,10 +33,10 @@ public class Mole {
         this.isVisible = visible;
         if (visible) {
             // Display Mole
-            imageView.setImageResource(R.drawable.img_without_mole);
+            imageView.setImageResource(R.drawable.img_with_mole);
         } else {
             // Hide Mole
-            imageView.setImageResource(R.drawable.img_with_mole);
+            imageView.setImageResource(R.drawable.img_without_mole);
         }
     }
 }

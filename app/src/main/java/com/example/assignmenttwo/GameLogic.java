@@ -16,15 +16,15 @@ public class GameLogic {
     private  int currentScore;
     private int timeRemaining;
     private int currentMoleIndex;
-    private Handler moleHandler;
+    private final Handler moleHandler;
     private  Runnable moleRunnable;
     private CountDownTimer gameTimer;
-    private Random random;
-    private ArrayList<Mole> moles;
-    private TextView scoreTextView;
-    private  TextView timerTextView;
+    private final Random random;
+    private final ArrayList<Mole> moles;
+    private final TextView  scoreTextView;
+    private final TextView timerTextView;
     private boolean isGameRunning;
-    private Context context;
+    private final Context context;
 
     // constructor
     public GameLogic(Context context, ArrayList<ImageView> moleViews, TextView scoreTextView, TextView timerTextView){
@@ -50,15 +50,15 @@ public class GameLogic {
             Mole mole = new Mole(i, moleViews.get(i));
             this.moles.add(mole);
 
-            // Bind click events for each groundhog's imageView
-            mole.getImageView().setOnClickListener(v -> {
-                // Clicking is only effective when the groundhog is visible
-                if (mole.isVisible()) {
-                    currentScore += 10;
-                    updateScoreText();
-                    mole.setVisible(false);
-                }
-            });
+//            // Bind click events for each groundhog's imageView
+//            mole.getImageView().setOnClickListener(v -> {
+//                // Clicking is only effective when the groundhog is visible
+//                if (mole.isVisible()) {
+//                    currentScore += 10;
+//                    updateScoreText();
+//                    hideMole();
+//                }
+//            });
         }
 
         this.scoreTextView = scoreTextView;
@@ -76,7 +76,6 @@ public class GameLogic {
         currentScore = 0;
         startMoleLoop();
         startTimer();
-        updateScoreText();
     }
 
     // Start game countdown
@@ -136,9 +135,7 @@ public class GameLogic {
 
     // Stop the mole cycle
     private void stopMoleLoop(){
-        if (moleHandler != null && moleRunnable != null) {
-            moleHandler.removeCallbacks(moleRunnable);
-        }
+        moleHandler.removeCallbacks(moleRunnable);
     }
 
     // Display the mole with the specified index
