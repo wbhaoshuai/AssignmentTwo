@@ -54,7 +54,7 @@ public class GameLogic {
             // Bind click events for each groundhog's imageView
             mole.getImageView().setOnClickListener(v -> {
                 // Clicking is only effective when the groundhog is visible
-                if (mole.isVisible()) {
+                if (isGameRunning && mole.isVisible()) {
                     currentScore += 10;
                     updateScoreText();
                     hideMole();
@@ -115,6 +115,11 @@ public class GameLogic {
             @Override
             public void run() {
 
+                // If the game has ended, simply exit the loop and no further logic will be executed
+                if (!isGameRunning) {
+                    return;
+                }
+
                 // Clear the previous round of groundhogs
                 if(currentMoleIndex != -1){
                     hideMole();
@@ -147,13 +152,15 @@ public class GameLogic {
     // Display the mole with the specified index
     private void showMole(int index){
         // Show new mole
-        currentMoleIndex = index;
-        moles.get(index).setVisible(true);
+        if (isGameRunning){
+            currentMoleIndex = index;
+            moles.get(index).setVisible(true);
+        }
     }
 
     // Hide the currently displayed mole
     private void hideMole(){
-        if(currentMoleIndex != -1){
+        if (isGameRunning && currentMoleIndex != -1){
             moles.get(currentMoleIndex).setVisible(false);
             currentMoleIndex = -1;
         }
